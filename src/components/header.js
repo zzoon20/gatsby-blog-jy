@@ -1,34 +1,52 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
+import styled from 'styled-components';
+import Logo from './Logo.js';
+import GithubLink from './GithubLink.js';
+
+const HeaderWrap = styled.div`
+    width: 100%;
+    margin : 0 auto;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+`;
+
+const HeaderDiv = styled.header`
+    width: 680px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 68px;
+`;
+
+const LogoWrap = styled.div`
+    float: left;
+`;
+
+const GithubWrap = styled.div`
+    float: right;
+    margin-top: 17px
+`;
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+  
+  <HeaderWrap>
+      <HeaderDiv>
+          <LogoWrap>
+          <Link
+            to="/"
+            style={{
+              color: `#000`,
+              textDecoration: `none`,
+            }}
+          >
+          <Logo/>
         </Link>
-      </h1>
-    </div>
-  </header>
+          </LogoWrap>
+          <GithubWrap>
+              <GithubLink/>
+          </GithubWrap>
+      </HeaderDiv>
+  </HeaderWrap>
 )
 
 Header.propTypes = {
